@@ -2,8 +2,21 @@
 
 set -e
 
+if which dpkg > /dev/null 2>&1 ; then
+  arch=$(dpkg --print-architecture)
+else
+  case $(uname -m) in
+  aarch64)
+    arch=arm64
+    ;;
+  *)
+    echo "ERROR: can't determine OS architechure"
+    exit 1
+    ;;
+  esac
+fi
+
 os=$(uname -s | tr A-Z a-z)
-arch=$(dpkg --print-architecture)
 asset_name="catwalk_${os}_${arch}.tar.gz"
 
 release_info=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/zjx20/catwalk_deploy/releases/latest)
