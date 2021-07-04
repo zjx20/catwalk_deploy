@@ -25,8 +25,8 @@ download_url="https://caddyserver.com/api/download?os=${os}&arch=${arch}&idempot
 wget -O "$file_name" "$download_url"
 
 sudo mv caddy /usr/bin/
-sudo groupadd --system caddy
-sudo useradd --system \
+sudo groupadd -f --system caddy
+sudo useradd -f --system \
     --gid caddy \
     --create-home \
     --home-dir /var/lib/caddy \
