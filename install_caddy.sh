@@ -57,7 +57,10 @@ sudo chmod -R 555 /var/lib/caddy/www/example.com
 
 sudo bash -c "cat <<EOT > /etc/caddy/Caddyfile
 example.com {
-  root * /var/lib/caddy/www/example.com
+  file_server / {
+    root          /var/lib/caddy/www/example.com
+    index         index.html
+  }
   # use "tls internal" for self-signed certifications
   tls foo@gmail.com
   proxy /chat localhost:51283 {
