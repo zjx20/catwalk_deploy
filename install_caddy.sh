@@ -5,6 +5,7 @@ set -e
 if which dpkg > /dev/null 2>&1 ; then
   arch=$(dpkg --print-architecture)
 else
+  # full list https://unix.stackexchange.com/a/353375
   case $(uname -m) in
   aarch64)
     arch=arm64
