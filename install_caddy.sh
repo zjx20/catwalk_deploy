@@ -25,14 +25,14 @@ download_url="https://caddyserver.com/api/download?os=${os}&arch=${arch}&idempot
 wget -O "$file_name" "$download_url"
 
 sudo mv caddy /usr/bin/
-sudo groupadd -f --system caddy
-sudo useradd -f --system \
+sudo groupadd --system caddy || true
+sudo useradd --system \
     --gid caddy \
     --create-home \
     --home-dir /var/lib/caddy \
     --shell /usr/sbin/nologin \
     --comment "Caddy web server" \
-    caddy
+    caddy || true
 
 sudo mkdir /etc/caddy
 sudo chown -R root:root /etc/caddy
