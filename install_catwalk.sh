@@ -31,10 +31,10 @@ tar xvf "$file_name"
 sudo cp server /usr/local/bin/catwalk_server
 
 sudo mkdir -p /var/lib/catwalk
-chmod 755 /var/lib/catwalk
-touch /var/lib/catwalk/conf_server.json
-echo "{}" > /var/lib/catwalk/conf_server.json
-chmod 755 /var/lib/catwalk/conf_server.json
+sudo chmod 755 /var/lib/catwalk
+sudo touch /var/lib/catwalk/conf_server.json
+sudo echo "{}" > /var/lib/catwalk/conf_server.json
+sudo chmod 755 /var/lib/catwalk/conf_server.json
 
 sudo wget -O /etc/systemd/system/catwalk.service https://raw.githubusercontent.com/zjx20/catwalk_deploy/main/catwalk.service
 
