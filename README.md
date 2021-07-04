@@ -5,13 +5,11 @@ catwalk deploy
 
 ```bash
 sudo apt-get install -y jq
-curl -s https://raw.githubusercontent.com/zjx20/catwalk_deploy/main/download.sh | bash -s
-curl -O https://raw.githubusercontent.com/zjx20/catwalk_deploy/main/run_server.sh
-chmod +x run_server.sh
+curl -s https://raw.githubusercontent.com/zjx20/catwalk_deploy/main/install_catwalk.sh | bash -s
 
 secret=$(tr -dc A-Za-z0-9 < /dev/urandom | head -c 24)
 
-cat <<-EOF > conf_server.json
+sudo bash -c "cat > /var/lib/catwalk/conf_server.json" <<-EOF
 {
   "app": "server",
   "catwalk": {
@@ -36,8 +34,8 @@ cat <<-EOF > conf_server.json
   },
   "log": {
     "level": "info",
-    "file": "./server.log",
-    "snmp_log": "./snmp_server.log",
+    "file": "/var/log/catwalk/server.log",
+    "snmp_log": "/var/log/catwalk/snmp_server.log",
     "rotate_size_mb": 100,
     "rotate_keeps": 5
   },
@@ -68,5 +66,5 @@ sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 
 # start the server
-./run_server.sh
+sudo systemctl start catwalk
 ```
