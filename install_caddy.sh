@@ -52,7 +52,7 @@ sudo mkdir -p /var/lib/caddy/www/example.com
 sudo bash -c "cat <<EOT > /var/lib/caddy/www/example.com/index.html
 my site
 EOT"
-sudo chown -R caddy:caddy /var/www/example.com
+sudo chown -R caddy:caddy /var/lib/caddy/www/example.com
 sudo chmod -R 555 /var/lib/caddy/www/example.com
 
 sudo bash -c "cat <<EOT > /etc/caddy/Caddyfile
