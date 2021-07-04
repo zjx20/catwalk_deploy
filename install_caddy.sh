@@ -34,9 +34,9 @@ sudo useradd --system \
     --comment "Caddy web server" \
     caddy || true
 
-sudo mkdir /etc/caddy
+sudo mkdir -p /etc/caddy
 sudo chown -R root:root /etc/caddy
-sudo mkdir /etc/ssl/caddy
+sudo mkdir -p /etc/ssl/caddy
 sudo chown -R root:caddy /etc/ssl/caddy
 sudo chmod 0770 /etc/ssl/caddy
 
@@ -44,7 +44,7 @@ sudo touch /etc/caddy/Caddyfile
 sudo chown root:root /etc/caddy/Caddyfile
 sudo chmod 644 /etc/caddy/Caddyfile
 
-sudo mkdir /var/lib/caddy/www
+sudo mkdir -p /var/lib/caddy/www
 sudo chown caddy:caddy /var/lib/caddy/www
 sudo chmod 555 /var/lib/caddy/www
 
