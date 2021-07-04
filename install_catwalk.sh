@@ -43,3 +43,6 @@ sudo systemctl enable catwalk
 # sudo systemctl start catwalk
 
 # journalctl -u catwalk
+
+echo "install success! please edit /var/lib/catwalk/conf_server.conf"
+echo "and then run: sudo systemctl start catwalk"
