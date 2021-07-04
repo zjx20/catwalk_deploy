@@ -35,6 +35,8 @@ sudo chmod 755 /var/lib/catwalk
 sudo touch /var/lib/catwalk/conf_server.json
 sudo bash -c 'echo "{}" > /var/lib/catwalk/conf_server.json'
 sudo chmod 755 /var/lib/catwalk/conf_server.json
+sudo mkdir -p /var/log/catwalk
+sudo chmod 777 /var/log/catwalk
 
 sudo wget -O /etc/systemd/system/catwalk.service https://raw.githubusercontent.com/zjx20/catwalk_deploy/main/catwalk.service
 
