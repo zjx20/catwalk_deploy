@@ -56,18 +56,18 @@ EOT"
 sudo chown -R caddy:caddy /var/lib/caddy/www/example.com
 sudo chmod -R 555 /var/lib/caddy/www/example.com
 
-sudo bash -c "cat <<EOT > /etc/caddy/Caddyfile
+sudo bash -c "cat > /etc/caddy/Caddyfile" <<EOT
 example.com {
   root * /var/lib/caddy/www/example.com
   file_server
   # use "tls internal" for self-signed certifications
   tls foo@gmail.com
-  proxy /chat localhost:51283 {
+  reverse_proxy /chat localhost:51283 {
     # websocket just works without explicitly enable
     header_up -Origin
   }
 }
-EOT"
+EOT
 
 sudo wget -O /etc/systemd/system/caddy.service https://raw.githubusercontent.com/caddyserver/dist/master/init/caddy.service
 
