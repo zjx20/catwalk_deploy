@@ -11,6 +11,7 @@ NoNewPrivileges=true
 ExecStart=/usr/local/bin/catwalk_server -conf /var/lib/catwalk/conf_server.json
 Restart=on-failure
 RestartPreventExitStatus=23
+LimitNOFILE=20480
 
 [Install]
 WantedBy=multi-user.target
